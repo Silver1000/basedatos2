@@ -23,3 +23,4 @@ guardar_almacen(321,'Ecatepec');
 end;
 /
 Select * from almacen;
+--Probar el procedimiento en netbeans
