@@ -1,0 +1,4 @@
+Cursores explicitos: es cualquier sentencai que obtenga como resultado mas una o mas filas 
+ejemplo:
+a)select * from calificaciones
+b)select * from calificaciones where id_calificaione=1;
