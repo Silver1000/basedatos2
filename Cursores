@@ -8,7 +8,7 @@ Tarea Final
 Hacer un diagrama de el patron de diseño MVC
 entregar en 1/4 de papel cascaron 
 
-En programacion html existen los siguientes metodoshttp con las tareas relacionadasa sql
+En programacion html existen los siguientes metodos http con las tareas relacionadas a sql
 metodo (http)       sql
 (default) get       select (permite inyeccion de sql)
 post                insert, (auntenticar a la bd)
