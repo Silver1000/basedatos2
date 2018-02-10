@@ -2,3 +2,4 @@ Cursores explicitos: es cualquier sentencia que obtenga como resultado una o mas
 ejemplos:
 a)select * from calificaciones
 b)select * from calificaciones where id_calificacion=1;
+Ejercicio generar todos los procedimientos almacenados para guardar en nuestro esquema de las 4 tablas
