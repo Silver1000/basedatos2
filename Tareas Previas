@@ -1,0 +1,12 @@
+1-Generar nuevamente la tabla calificaciones y secuencia asociada
+2-Generar procedimiento guardar_Calificaciones
+3-Guardar datos
+
+Ejercicio:Actualizar las calificaciones de la siguiente manera 
+1-Si la calificaciones menor de 5 actualizar a 5
+Para ello usar un cursor explicito (De tipo Update) 
+
+MVC
+Vista->paginas html
+C->Controller:comunicacion entre las vistas y el Model
+M->model:Contiene toda la logica (procedimientos almacenados, disparadores,cursores,etc)
