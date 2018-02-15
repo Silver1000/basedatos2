@@ -113,14 +113,16 @@ select count (*) from ventas
 --Calificaciones
 create table Calificaciones (Id_Calificaciones integer,
 Materia varchar2(50),
-Calificacion integer,
+Calificacion float,
 constraint PK_Id_C primary key (Id_Calificaciones)
 );
+
 Create Sequence Sec_Cal
 Start with 1
 increment by 1
 --Permite poner varios registros
 nomaxvalue;
+
 
 --Aqui  ya viene el procedimiento almacenado(Cursor implicito)
 create or replace procedure guardar_calificaciones(my_id_calificacion Out integer,my_materia In varchar2,my_calificacion In float)
@@ -130,10 +132,17 @@ select Sec_Cal.NextVal into my_id_calificacion from dual;
 insert into Calificaciones values (my_id_calificacion,my_materia,my_calificacion);
 end;
 /
+--Inserccion de datos a calificaciones
 declare
 valor integer;
 begin 
-guardar_calificaciones(Valor,'Base de datos 2',9);
+guardar_calificaciones(Valor,'Admin4',9.8);
+end;
+/
+declare
+valor integer;
+begin 
+guardar_calificaciones(Valor,'Fundamentos de negocios electronicos',10);
 end;
 /
 select * from calificaciones;
@@ -149,3 +158,42 @@ end loop;
 end;
 /
 set serveroutput on;
+--Cursor que modifica la calificacion que es menor a 5
+declare 
+cursor cur_2 is select * from Calificaciones for update;
+begin
+for rec in cur_2 loop
+if rec.calificacion <5 then
+update Calificaciones set calificacion=5 where current of cur_2;
+end if;
+end loop;
+end;
+/
+--Cursor
+declare 
+cursor cur_3 is select * from Calificaciones for update;
+begin
+for rec in cur_3 loop
+if rec.calificacion >=9.5 then
+update Calificaciones set calificacion=10 where current of cur_3;
+else
+if rec.calificacion >=8.5 then
+update Calificaciones set calificacion=9 where current of cur_3;
+else
+if rec.calificacion >=7.5 then
+update Calificaciones set calificacion=8 where current of cur_3;
+else
+if rec.calificacion >=6.5 then
+update Calificaciones set calificacion=7 where current of cur_3;
+else
+if rec.calificacion <=5.5 then
+update Calificaciones set calificacion=5 where current of cur_3;
+end if;
+end if;
+end if;
+end if;
+end if;
+end loop;
+end;
+/
+
